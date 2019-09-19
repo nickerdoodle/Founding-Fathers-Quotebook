@@ -13,6 +13,8 @@
 		012072682327ECEE007B423D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012072662327ECEE007B423D /* Main.storyboard */; };
 		0120726A2327ECEF007B423D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012072692327ECEF007B423D /* Assets.xcassets */; };
 		0120726D2327ECEF007B423D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0120726B2327ECEF007B423D /* LaunchScreen.storyboard */; };
+		01207276232A0764007B423D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01207275232A0764007B423D /* WebKit.framework */; };
+		01207278232A08D5007B423D /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01207277232A08D5007B423D /* QuoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		012072692327ECEF007B423D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0120726C2327ECEF007B423D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0120726E2327ECEF007B423D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01207275232A0764007B423D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		01207277232A08D5007B423D /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01207276232A0764007B423D /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,7 @@
 			children = (
 				0120725F2327ECEE007B423D /* Founding Fathers Quote Book */,
 				0120725E2327ECEE007B423D /* Products */,
+				01207274232A0763007B423D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +66,20 @@
 				012072622327ECEE007B423D /* SceneDelegate.swift */,
 				012072642327ECEE007B423D /* ViewController.swift */,
 				012072662327ECEE007B423D /* Main.storyboard */,
+				01207277232A08D5007B423D /* QuoteViewController.swift */,
 				012072692327ECEF007B423D /* Assets.xcassets */,
 				0120726B2327ECEF007B423D /* LaunchScreen.storyboard */,
 				0120726E2327ECEF007B423D /* Info.plist */,
 			);
 			path = "Founding Fathers Quote Book";
+			sourceTree = "<group>";
+		};
+		01207274232A0763007B423D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01207275232A0764007B423D /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				012072652327ECEE007B423D /* ViewController.swift in Sources */,
+				01207278232A08D5007B423D /* QuoteViewController.swift in Sources */,
 				012072612327ECEE007B423D /* AppDelegate.swift in Sources */,
 				012072632327ECEE007B423D /* SceneDelegate.swift in Sources */,
 			);
