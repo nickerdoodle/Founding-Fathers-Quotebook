@@ -35,4 +35,7 @@ class QuoteViewController : UIViewController {
 
                             """, baseURL : nil)
     }
+    @IBAction func exitModalScene(_ segue: UIStoryboardSegue){
+        //In this case, there is nothing to do, but we need a target
+    }
 }
