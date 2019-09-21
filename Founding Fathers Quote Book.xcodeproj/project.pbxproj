@@ -15,10 +15,12 @@
 		0120726D2327ECEF007B423D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0120726B2327ECEF007B423D /* LaunchScreen.storyboard */; };
 		01207276232A0764007B423D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01207275232A0764007B423D /* WebKit.framework */; };
 		01207278232A08D5007B423D /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01207277232A08D5007B423D /* QuoteViewController.swift */; };
+		0174259D233687C200843B34 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174259C233687C200843B34 /* Quote.swift */; };
+		0174259F2336A8CB00843B34 /* QuoteDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174259E2336A8CB00843B34 /* QuoteDeck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0120725D2327ECEE007B423D /* Founding Fathers Quote Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Founding Fathers Quote Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0120725D2327ECEE007B423D /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		012072602327ECEE007B423D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		012072622327ECEE007B423D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		012072642327ECEE007B423D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		0120726E2327ECEF007B423D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01207275232A0764007B423D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		01207277232A08D5007B423D /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
+		0174259C233687C200843B34 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		0174259E2336A8CB00843B34 /* QuoteDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,7 @@
 		0120725E2327ECEE007B423D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0120725D2327ECEE007B423D /* Founding Fathers Quote Book.app */,
+				0120725D2327ECEE007B423D /* Quotes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,14 +66,10 @@
 		0120725F2327ECEE007B423D /* Founding Fathers Quote Book */ = {
 			isa = PBXGroup;
 			children = (
-				012072602327ECEE007B423D /* AppDelegate.swift */,
-				012072622327ECEE007B423D /* SceneDelegate.swift */,
-				012072642327ECEE007B423D /* ViewController.swift */,
-				012072662327ECEE007B423D /* Main.storyboard */,
-				01207277232A08D5007B423D /* QuoteViewController.swift */,
-				012072692327ECEF007B423D /* Assets.xcassets */,
-				0120726B2327ECEF007B423D /* LaunchScreen.storyboard */,
-				0120726E2327ECEF007B423D /* Info.plist */,
+				0174259B2336870700843B34 /* Controller */,
+				0174259A2336870000843B34 /* View */,
+				01742599233686F100843B34 /* Model */,
+				017425982336866B00843B34 /* Supported Files */,
 			);
 			path = "Founding Fathers Quote Book";
 			sourceTree = "<group>";
@@ -80,6 +80,44 @@
 				01207275232A0764007B423D /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		017425982336866B00843B34 /* Supported Files */ = {
+			isa = PBXGroup;
+			children = (
+				0120726B2327ECEF007B423D /* LaunchScreen.storyboard */,
+				0120726E2327ECEF007B423D /* Info.plist */,
+				012072692327ECEF007B423D /* Assets.xcassets */,
+				012072622327ECEE007B423D /* SceneDelegate.swift */,
+				012072602327ECEE007B423D /* AppDelegate.swift */,
+			);
+			name = "Supported Files";
+			sourceTree = "<group>";
+		};
+		01742599233686F100843B34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0174259C233687C200843B34 /* Quote.swift */,
+				0174259E2336A8CB00843B34 /* QuoteDeck.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0174259A2336870000843B34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				012072662327ECEE007B423D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0174259B2336870700843B34 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				012072642327ECEE007B423D /* ViewController.swift */,
+				01207277232A08D5007B423D /* QuoteViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,7 +137,7 @@
 			);
 			name = "Founding Fathers Quote Book";
 			productName = "Founding Fathers Quote Book";
-			productReference = 0120725D2327ECEE007B423D /* Founding Fathers Quote Book.app */;
+			productReference = 0120725D2327ECEE007B423D /* Quotes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -154,8 +192,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				012072652327ECEE007B423D /* ViewController.swift in Sources */,
+				0174259F2336A8CB00843B34 /* QuoteDeck.swift in Sources */,
 				01207278232A08D5007B423D /* QuoteViewController.swift in Sources */,
 				012072612327ECEE007B423D /* AppDelegate.swift in Sources */,
+				0174259D233687C200843B34 /* Quote.swift in Sources */,
 				012072632327ECEE007B423D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +347,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.byu.nmmahe.Founding-Fathers-Quote-Book";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quotes;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -324,7 +364,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.byu.nmmahe.Founding-Fathers-Quote-Book";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quotes;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

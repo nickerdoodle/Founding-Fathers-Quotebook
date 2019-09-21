@@ -15,9 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Gvw-Dq-5LU">
-                                <rect key="frame" x="148.5" y="714" width="117" height="102"/>
-                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FoundingFathersSquare" translatesAutoresizingMaskIntoConstraints="NO" id="Nhz-lm-3BC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
@@ -37,7 +34,6 @@
                             <constraint firstItem="Nhz-lm-3BC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YDG-tT-eRh"/>
                             <constraint firstItem="8u1-Q5-xKr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bqV-n2-7a0"/>
                             <constraint firstItem="Nhz-lm-3BC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cNs-M9-tRf"/>
-                            <constraint firstItem="Gvw-Dq-5LU" firstAttribute="centerX" secondItem="Nhz-lm-3BC" secondAttribute="centerX" id="evJ-eZ-AxA"/>
                             <constraint firstItem="Nhz-lm-3BC" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="gVn-IF-cqL"/>
                             <constraint firstItem="8u1-Q5-xKr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h3J-7i-ZcN"/>
                             <constraint firstAttribute="bottom" secondItem="8u1-Q5-xKr" secondAttribute="bottom" id="ja8-mh-8qp"/>
@@ -55,7 +51,11 @@
                                 <segue destination="8uS-fo-5x0" kind="presentation" id="ArQ-4v-uVD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="pGA-7D-UPH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="pGA-7D-UPH">
+                            <connections>
+                                <segue destination="dyA-9o-QvX" kind="presentation" id="9g1-ZR-khV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="webView" destination="8u1-Q5-xKr" id="ZIt-ZP-bp6"/>
@@ -70,7 +70,7 @@
             <objects>
                 <tableViewController id="6Sv-6V-52h" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="as1-uB-mOK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -194,7 +194,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="58A-dh-nk7">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="tT3-93-NSo">
                             <connections>
-                                <segue destination="vRh-wM-lP3" kind="unwind" unwindAction="exitModalScene:" id="5hW-vB-qlt"/>
+                                <segue destination="vRh-wM-lP3" kind="unwind" unwindAction="exitModalScene:" id="TcP-OI-Na7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -204,193 +204,10 @@
             </objects>
             <point key="canvasLocation" x="1955" y="129"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="9BL-Qr-gHq">
-            <objects>
-                <viewController id="sRL-Qa-zWJ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fbn-8z-gGC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Notification Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIk-FL-m7X">
-                                <rect key="frame" x="20" y="251.5" width="135" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dR-kJ-xbH">
-                                <rect key="frame" x="20" y="475" width="105" height="30"/>
-                                <state key="normal" title="Notify Me Daily"/>
-                                <connections>
-                                    <segue destination="8MK-Tn-4Z5" kind="show" id="4DO-39-zBM"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="9dR-kJ-xbH" firstAttribute="leading" secondItem="WrW-iv-nAf" secondAttribute="leading" constant="20" id="2bX-pN-apQ"/>
-                            <constraint firstItem="eIk-FL-m7X" firstAttribute="leading" secondItem="WrW-iv-nAf" secondAttribute="leading" constant="20" id="PDd-uY-cAs"/>
-                            <constraint firstItem="9dR-kJ-xbH" firstAttribute="leading" secondItem="WrW-iv-nAf" secondAttribute="leading" constant="20" id="QAm-un-XN1"/>
-                            <constraint firstItem="WrW-iv-nAf" firstAttribute="trailing" secondItem="9dR-kJ-xbH" secondAttribute="trailing" constant="289" id="Sgn-vk-Nzt"/>
-                            <constraint firstItem="WrW-iv-nAf" firstAttribute="trailing" secondItem="eIk-FL-m7X" secondAttribute="trailing" constant="259" id="eyd-rG-nT5"/>
-                            <constraint firstItem="WrW-iv-nAf" firstAttribute="bottom" secondItem="9dR-kJ-xbH" secondAttribute="bottom" constant="357" id="mkR-PI-4Pv"/>
-                            <constraint firstItem="WrW-iv-nAf" firstAttribute="trailing" secondItem="9dR-kJ-xbH" secondAttribute="trailing" constant="289" id="ySM-2k-X8U"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="WrW-iv-nAf"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="P34-ch-hLQ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Aio-oe-pnN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3237.68115942029" y="135.9375"/>
-        </scene>
-        <!--Notify on Days-->
-        <scene sceneID="oJV-Cr-5Zh">
-            <objects>
-                <tableViewController id="8MK-Tn-4Z5" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yKH-wl-P1x">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <sections>
-                            <tableViewSection id="y6T-VG-VY8">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="uR9-nk-3no" style="IBUITableViewCellStyleDefault" id="zcU-kn-H65">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zcU-kn-H65" id="BGy-jg-umy">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Sunday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uR9-nk-3no">
-                                                    <rect key="frame" x="20" y="0.0" width="342" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="v4S-Zk-gM1" style="IBUITableViewCellStyleDefault" id="3l3-cu-wL6">
-                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3l3-cu-wL6" id="9Yg-TW-qzZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v4S-Zk-gM1">
-                                                    <rect key="frame" x="20" y="0.0" width="342" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="a20-CM-D2b" style="IBUITableViewCellStyleDefault" id="6wh-Xe-IlI">
-                                        <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6wh-Xe-IlI" id="F3M-Ks-1TI">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Tuesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a20-CM-D2b">
-                                                    <rect key="frame" x="20" y="0.0" width="342" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="ACF-9L-Yji" style="IBUITableViewCellStyleDefault" id="YKu-FC-ZAc">
-                                        <rect key="frame" x="0.0" y="158.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YKu-FC-ZAc" id="3Bu-bI-uT9">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ACF-9L-Yji">
-                                                    <rect key="frame" x="20" y="0.0" width="342" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="gBe-Iy-5kB" style="IBUITableViewCellStyleDefault" id="1fF-8u-8OW">
-                                        <rect key="frame" x="0.0" y="202" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1fF-8u-8OW" id="EdD-nL-q1b">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gBe-Iy-5kB">
-                                                    <rect key="frame" x="20" y="0.0" width="342" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="Myd-Rl-HUk" style="IBUITableViewCellStyleDefault" id="e05-oj-Njg">
-                                        <rect key="frame" x="0.0" y="245.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e05-oj-Njg" id="vwn-MA-xHE">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Friday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Myd-Rl-HUk">
-                                                    <rect key="frame" x="20" y="0.0" width="342" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="0Ma-I1-qxB" style="IBUITableViewCellStyleDefault" id="m6f-MI-i67">
-                                        <rect key="frame" x="0.0" y="289" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m6f-MI-i67" id="Ba6-9L-wH7">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Ma-I1-qxB">
-                                                    <rect key="frame" x="20" y="0.0" width="342" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="8MK-Tn-4Z5" id="1UX-9o-LKS"/>
-                            <outlet property="delegate" destination="8MK-Tn-4Z5" id="SSi-qA-gP1"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Notify on Days" id="xjd-Or-dZM"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ugY-Xf-Oek" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3947.826086956522" y="135.9375"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yKO-IM-vIt">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ll-cC-CEk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tzL-az-kcS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iXA-u8-1bK">
@@ -402,7 +219,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ycr-Dt-ezx"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2ll-cC-CEk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-700" y="136"/>
         </scene>
@@ -631,8 +447,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dyA-9o-QvX" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="0zF-I8-utd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uxP-zY-OQ5">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
