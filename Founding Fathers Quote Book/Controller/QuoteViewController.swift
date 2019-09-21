@@ -10,30 +10,32 @@ import UIKit
 import WebKit
 
 class QuoteViewController : UIViewController {
+    //Properties
+    var currentQuoteIndex = 0
     
+    //Outlets
     @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        chooseQuoteOfTheDay()
+        updateUI()
         
-        webView.loadHTMLString("""
-
-                                <!DOCTYPE html>
-                                <html lang="en">
-                                <head>
-                                    <meta charset="UTF-8">
-                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                    <title>Quote of the Day</title>
-                                </head>
-                                <body>
-                                    <div style="font-size:24px;">
-                                        Do you want to know who you are? Don't ask, Act!
-                                    Action will delineate and define you.
-                                <br /> Thomas Jefferson
-                                    </div>
-                                </body>
-                                </html>
-
-                            """, baseURL : nil)
+        
+    }
+    private func chooseQuoteOfTheDay(){
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "DDD"
+        
+        if let dayInYear = Int(formatter.string(from: Date())){
+            currentQuoteIndex = dayInYear % QuoteDeck.sharedInstance.quotes.count
+        }
+    }
+    
+    private func updateUI(){
+        let currentQuote = QuoteDeck.sharedInstance.quotes[currentQuoteIndex]
+        webView.loadHTMLString(currentQuote.html, baseURL : nil)
     }
     @IBAction func exitModalScene(_ segue: UIStoryboardSegue){
         //In this case, there is nothing to do, but we need a target
