@@ -17,6 +17,7 @@
 		01207278232A08D5007B423D /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01207277232A08D5007B423D /* QuoteViewController.swift */; };
 		0174259D233687C200843B34 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174259C233687C200843B34 /* Quote.swift */; };
 		0174259F2336A8CB00843B34 /* QuoteDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174259E2336A8CB00843B34 /* QuoteDeck.swift */; };
+		017425A1233A64B900843B34 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017425A0233A64B900843B34 /* TopicsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		01207277232A08D5007B423D /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		0174259C233687C200843B34 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		0174259E2336A8CB00843B34 /* QuoteDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDeck.swift; sourceTree = "<group>"; };
+		017425A0233A64B900843B34 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			children = (
 				012072642327ECEE007B423D /* ViewController.swift */,
 				01207277232A08D5007B423D /* QuoteViewController.swift */,
+				017425A0233A64B900843B34 /* TopicsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				017425A1233A64B900843B34 /* TopicsViewController.swift in Sources */,
 				012072652327ECEE007B423D /* ViewController.swift in Sources */,
 				0174259F2336A8CB00843B34 /* QuoteDeck.swift in Sources */,
 				01207278232A08D5007B423D /* QuoteViewController.swift in Sources */,
