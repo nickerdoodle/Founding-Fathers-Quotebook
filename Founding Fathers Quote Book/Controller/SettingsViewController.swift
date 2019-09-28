@@ -17,7 +17,9 @@ class SettingsViewController: UITableViewController{
         static let enabled = UIColor.init(displayP3Red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
     }
     
-    //private enum in video 13 at beginning if you end up using it
+    private enum Settings: String{
+        case notificationsOn, hour, minute, notifyDays
+    }
     
     // Properties
     var hour = 7
@@ -71,9 +73,22 @@ class SettingsViewController: UITableViewController{
         }
     }
     private func saveSettings(){
-        //Needs work
+        let defaults = UserDefaults.standard
+        defaults.set(notificationOn, forKey: Settings.notificationsOn.rawValue)
+        defaults.set(hour, forKey: Settings.notificationsOn.rawValue)
+        defaults.set(minute, forKey: Settings.notificationsOn.rawValue)
+        defaults.set(notifyDays, forKey: Settings.notificationsOn.rawValue)
+        
+        defaults.synchronize()
     }
     private func restoreSettings(){
-        //Needs work
+        let defaults = UserDefaults.standard
+
+        if let days = defaults.array(forKey: Settings.notifyDays.rawValue) as? [Bool]{
+            notifyDays = days
+            notificationOn = defaults.bool(forKey: Settings.notificationsOn.rawValue)
+            hour = defaults.integer(forKey: Settings.hour.rawValue)
+            minute = defaults.integer(forKey: Settings.minute.rawValue)
+        }
     }
 }
