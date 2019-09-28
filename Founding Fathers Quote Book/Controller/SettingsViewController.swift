@@ -21,6 +21,21 @@ class SettingsViewController: UITableViewController{
         case notificationsOn, hour, minute, notifyDays
     }
     
+    private struct NotificationAlert{
+        static let buttonLabel = "OK"
+        static let message = """
+                            To allow this app to remind you of the quote of the day, please go to the Settings app and enable notifications for the Quotes app.
+                            """
+        static let title = "Notifications are disabled"
+    }
+    
+    private struct NotificationContent{
+        static let body = "Read advice from our founding fathers"
+        static let identifier = "edu.byu.ffqb"
+        static let subtitle = "Quote of the Day"
+        static let title = "Founding Fathers"
+    }
+    
     // Properties
     var hour = 7
     var minute = 0
@@ -36,7 +51,7 @@ class SettingsViewController: UITableViewController{
     // View Controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        checkNotificationPermissions()
         restoreSettings()
         updateUI()
     }
@@ -61,6 +76,18 @@ class SettingsViewController: UITableViewController{
         updateUI()
     }
     // Helpers
+    private func checkNotificationPermissions(){
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized{
+                let alertController = UIAlertController(title: NotificationAlert.title, message: NotificationAlert.message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: NotificationAlert.title, style:  .default, handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
     private func updateUI(){
         notificationsSwitch.setOn(notificationOn, animated: false)
         
