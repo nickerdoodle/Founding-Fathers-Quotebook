@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0116EDAB233FD6C9003517C5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116EDAA233FD6C9003517C5 /* SettingsViewController.swift */; };
 		012072612327ECEE007B423D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012072602327ECEE007B423D /* AppDelegate.swift */; };
 		012072632327ECEE007B423D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012072622327ECEE007B423D /* SceneDelegate.swift */; };
 		012072652327ECEE007B423D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012072642327ECEE007B423D /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0116EDAA233FD6C9003517C5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0120725D2327ECEE007B423D /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		012072602327ECEE007B423D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		012072622327ECEE007B423D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				012072642327ECEE007B423D /* ViewController.swift */,
 				01207277232A08D5007B423D /* QuoteViewController.swift */,
 				017425A0233A64B900843B34 /* TopicsViewController.swift */,
+				0116EDAA233FD6C9003517C5 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				012072612327ECEE007B423D /* AppDelegate.swift in Sources */,
 				0174259D233687C200843B34 /* Quote.swift in Sources */,
 				012072632327ECEE007B423D /* SceneDelegate.swift in Sources */,
+				0116EDAB233FD6C9003517C5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

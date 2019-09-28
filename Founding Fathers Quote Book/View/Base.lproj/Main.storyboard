@@ -85,7 +85,7 @@
         <!--Settings-->
         <scene sceneID="gZK-fX-biz">
             <objects>
-                <tableViewController id="6Sv-6V-52h" sceneMemberID="viewController">
+                <tableViewController id="6Sv-6V-52h" customClass="SettingsViewController" customModule="Quotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="as1-uB-mOK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,7 @@
                         <sections>
                             <tableViewSection id="bgj-ra-v7x">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BVY-jI-cZM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="BVY-jI-cZM">
                                         <rect key="frame" x="0.0" y="18" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BVY-jI-cZM" id="1qB-gz-Qlh">
@@ -108,6 +108,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uCg-p0-6zB">
                                                     <rect key="frame" x="345" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="toggleNotifications:" destination="6Sv-6V-52h" eventType="valueChanged" id="UIz-JK-owf"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -123,22 +126,25 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Notify at Time" id="IlZ-JU-c1R">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="180" id="fsE-Ed-TsL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="180" id="fsE-Ed-TsL">
                                         <rect key="frame" x="0.0" y="117.5" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fsE-Ed-TsL" id="p60-uc-K4v">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfT-kw-Esy">
-                                                    <rect key="frame" x="0.0" y="9" width="414" height="162"/>
-                                                </pickerView>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="qDx-hJ-AUF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                                    <connections>
+                                                        <action selector="updateNotificationTime:" destination="6Sv-6V-52h" eventType="valueChanged" id="3SW-OA-yra"/>
+                                                    </connections>
+                                                </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="cfT-kw-Esy" firstAttribute="centerY" secondItem="p60-uc-K4v" secondAttribute="centerY" id="Kl3-Iu-Nhs"/>
-                                                <constraint firstAttribute="trailing" secondItem="cfT-kw-Esy" secondAttribute="trailing" id="RsB-2H-ePI"/>
-                                                <constraint firstItem="cfT-kw-Esy" firstAttribute="leading" secondItem="p60-uc-K4v" secondAttribute="leading" id="ox6-IH-7Bs"/>
-                                                <constraint firstItem="cfT-kw-Esy" firstAttribute="top" secondItem="p60-uc-K4v" secondAttribute="topMargin" constant="-2" id="uUz-Hy-qSg"/>
+                                                <constraint firstItem="qDx-hJ-AUF" firstAttribute="top" secondItem="p60-uc-K4v" secondAttribute="top" id="B8K-wv-4yn"/>
+                                                <constraint firstAttribute="trailing" secondItem="qDx-hJ-AUF" secondAttribute="trailing" id="Py8-eE-ro7"/>
+                                                <constraint firstItem="qDx-hJ-AUF" firstAttribute="leading" secondItem="p60-uc-K4v" secondAttribute="leading" id="eMJ-Yz-X1Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="qDx-hJ-AUF" secondAttribute="bottom" id="hoo-mH-bgf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -146,7 +152,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Notify on Days" id="c0X-Ql-ivE">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qrr-AF-sbh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="qrr-AF-sbh">
                                         <rect key="frame" x="0.0" y="353.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qrr-AF-sbh" id="27h-yn-dSN">
@@ -160,36 +166,57 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="S"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="6Sv-6V-52h" eventType="touchUpInside" id="kb1-wY-pGr"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpp-fi-drh">
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpp-fi-drh">
                                                             <rect key="frame" x="38" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <state key="normal" title="S"/>
+                                                            <state key="normal" title="M"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="6Sv-6V-52h" eventType="touchUpInside" id="RGZ-oI-d7M"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHn-iZ-8Wd">
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHn-iZ-8Wd">
                                                             <rect key="frame" x="76" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <state key="normal" title="S"/>
+                                                            <state key="normal" title="T"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="6Sv-6V-52h" eventType="touchUpInside" id="Xl1-1U-eeZ"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q42-k4-5Kl">
+                                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q42-k4-5Kl">
                                                             <rect key="frame" x="114" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <state key="normal" title="S"/>
+                                                            <state key="normal" title="W"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="6Sv-6V-52h" eventType="touchUpInside" id="iey-pP-MBG"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JQ-kr-h2m">
+                                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JQ-kr-h2m">
                                                             <rect key="frame" x="152" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <state key="normal" title="S"/>
+                                                            <state key="normal" title="T"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="6Sv-6V-52h" eventType="touchUpInside" id="OCM-1O-ce0"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71P-OF-DOa">
+                                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71P-OF-DOa">
                                                             <rect key="frame" x="190" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <state key="normal" title="S"/>
+                                                            <state key="normal" title="F"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="6Sv-6V-52h" eventType="touchUpInside" id="Abm-lv-zTy"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQZ-wc-IkH">
+                                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQZ-wc-IkH">
                                                             <rect key="frame" x="228" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="S"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="6Sv-6V-52h" eventType="touchUpInside" id="Xop-ne-NsG"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -215,11 +242,22 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="notificationsSwitch" destination="uCg-p0-6zB" id="v2j-88-Svc"/>
+                        <outlet property="timePicker" destination="qDx-hJ-AUF" id="hfn-yf-7Aq"/>
+                        <outletCollection property="dayButtons" destination="O9G-w6-m17" collectionClass="NSMutableArray" id="g3e-Yu-nGc"/>
+                        <outletCollection property="dayButtons" destination="Kpp-fi-drh" collectionClass="NSMutableArray" id="KO1-qr-UxU"/>
+                        <outletCollection property="dayButtons" destination="nHn-iZ-8Wd" collectionClass="NSMutableArray" id="KB0-Dy-QBQ"/>
+                        <outletCollection property="dayButtons" destination="q42-k4-5Kl" collectionClass="NSMutableArray" id="DlV-if-EGm"/>
+                        <outletCollection property="dayButtons" destination="6JQ-kr-h2m" collectionClass="NSMutableArray" id="hLd-Ka-EKp"/>
+                        <outletCollection property="dayButtons" destination="71P-OF-DOa" collectionClass="NSMutableArray" id="EDO-uA-yYU"/>
+                        <outletCollection property="dayButtons" destination="OQZ-wc-IkH" collectionClass="NSMutableArray" id="Tz2-5l-mpk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uA9-bv-Uoq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="vRh-wM-lP3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="129"/>
+            <point key="canvasLocation" x="1953.6231884057972" y="128.57142857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yKO-IM-vIt">
