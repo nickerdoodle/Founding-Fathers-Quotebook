@@ -10,7 +10,7 @@
         <!--Quote of the Day-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="QuoteViewController" customModule="Founding_Fathers_Quote_Book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="QuoteViewController" customModule="Quotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,10 +21,15 @@
                             <wkWebView alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8u1-Q5-xKr">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3zd-wS-9VR" appends="YES" id="4Kk-6w-gSM"/>
+                                    <outletCollection property="gestureRecognizers" destination="xez-Fp-WQm" appends="YES" id="omK-Qz-OpF"/>
+                                </connections>
                             </wkWebView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -48,7 +53,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="pFu-Ql-ccz"/>
                         <barButtonItem key="leftBarButtonItem" title="Topics" id="H8E-kT-ZrO">
                             <connections>
-                                <segue destination="8uS-fo-5x0" kind="presentation" id="ArQ-4v-uVD"/>
+                                <action selector="toggleTopics:" destination="BYZ-38-t0r" id="D9N-lv-ngR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="pGA-7D-UPH">
@@ -58,10 +63,22 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="toggleButton" destination="H8E-kT-ZrO" id="LjL-ft-JYp"/>
                         <outlet property="webView" destination="8u1-Q5-xKr" id="ZIt-ZP-bp6"/>
+                        <segue destination="8uS-fo-5x0" kind="presentation" identifier="ShowTopics" id="3MP-8d-XbD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="3zd-wS-9VR">
+                    <connections>
+                        <action selector="swipe:" destination="BYZ-38-t0r" id="Ul0-So-Uf4"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="xez-Fp-WQm">
+                    <connections>
+                        <action selector="swipe:" destination="BYZ-38-t0r" id="BWJ-QD-qwI"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="88" y="136"/>
         </scene>
@@ -207,7 +224,6 @@
         <!--Navigation Controller-->
         <scene sceneID="yKO-IM-vIt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2ll-cC-CEk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tzL-az-kcS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iXA-u8-1bK">
@@ -219,6 +235,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ycr-Dt-ezx"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ll-cC-CEk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-700" y="136"/>
         </scene>
