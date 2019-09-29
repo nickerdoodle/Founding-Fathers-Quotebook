@@ -42,6 +42,24 @@ class SettingsViewController: UITableViewController{
     var notificationOn = true
     var notifyDays = [true, true, true, true, true, true, true]
     
+    // Computed properties
+    private var notificationContent:UNMutableNotificationContent{
+         let content = UNMutableNotificationContent()
+        content.title = NotificationContent.title
+        content.subtitle = NotificationContent.subtitle
+        content.body = NotificationContent.body
+        return content
+    }
+    
+    private var notificationTrigger:UNNotificationTrigger{
+        var components = DateComponents()
+        
+        components.hour = hour
+        components.minute=minute
+        
+        return UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+    }
+    
     // Outlets
     
     @IBOutlet var dayButtons: [UIButton]!
@@ -107,7 +125,18 @@ class SettingsViewController: UITableViewController{
         defaults.set(notifyDays, forKey: Settings.notificationsOn.rawValue)
         
         defaults.synchronize()
+        registerNotifications()
     }
+    private func registerNotifications(){
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
+        if notificationOn{
+            let request = UNNotificationRequest(identifier: NotificationContent.identifier , content: notificationContent, trigger: notificationTrigger)
+            UNUserNotificationCenter.current().add(request)
+        }
+    }
+    
     private func restoreSettings(){
         let defaults = UserDefaults.standard
 
