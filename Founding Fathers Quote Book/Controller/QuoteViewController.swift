@@ -12,6 +12,12 @@ import WebKit
 class QuoteViewController : UIViewController {
     
     //Constants
+    
+    private struct Key{
+        static let currentQuoteIndex = "currentQuoteIndex"
+        static let topic = "topic"
+    }
+    
     private struct Storyboard{
         static let quoteOfTheDayTitle = "Quote of the Day"
         static let showTopicsSegueIdentifier = "ShowTopics"
@@ -30,9 +36,33 @@ class QuoteViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configure(updatingCurrentIndex: true)
         
     }
+    
+    // State Restoration
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        
+        currentQuoteIndex = coder.decodeInteger(forKey: Key.currentQuoteIndex)
+        
+        if let savedTopic = coder.decodeObject(forKey: Key.topic) as? String {
+            topic = savedTopic
+        }
+        else{
+            topic = nil
+        }
+        
+        configure(updatingCurrentIndex: false)
+    }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        coder.encode(currentQuoteIndex, forKey: Key.currentQuoteIndex)
+        coder.encode(topic, forKey: Key.topic)
+    }
+    
     
     //Actions
     
@@ -71,16 +101,22 @@ class QuoteViewController : UIViewController {
         }
     }
     
-    private func configure(){
+    private func configure(updatingCurrentIndex needsIndexUpdate: Bool){
         
         if let currentTopic = topic{
-            currentQuoteIndex = 0
+            if needsIndexUpdate{
+                currentQuoteIndex = 0
+            }
+            
             quotes = QuoteDeck.sharedInstance.quotes(for: currentTopic)
             
         }
         
         else{
-            quotes = QuoteDeck.sharedInstance.quotes
+            if needsIndexUpdate{
+                quotes = QuoteDeck.sharedInstance.quotes
+            }
+            
             chooseQuoteOfTheDay()
             
         }
@@ -89,7 +125,7 @@ class QuoteViewController : UIViewController {
     }
     func showQuoteOfTheDay(){
         topic = nil
-        configure()
+        configure(updatingCurrentIndex: true)
     }
     
     private func title(for topic:String) -> String{
@@ -129,9 +165,9 @@ class QuoteViewController : UIViewController {
     @IBAction func exitModalScene(_ segue: UIStoryboardSegue){
         //In this case, there is nothing to do, but we need a target
         topic = nil
-        configure()
+        configure(updatingCurrentIndex: true)
     }
     @IBAction func showTopicQuotes(_ segue: UIStoryboardSegue){
-        configure()
+        configure(updatingCurrentIndex: true)
     }
 }

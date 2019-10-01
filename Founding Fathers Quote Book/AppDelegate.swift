@@ -11,6 +11,14 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
+    // Constants
+    
+    private struct Application{
+        static let version = 1
+        static let  versionKey = "version"
+    }
+    
+    
     // Properties
     var window: UIWindow?
     
@@ -26,6 +34,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.makeKeyAndVisible()
         return true
     }
+    
+    func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+        let version = coder.decodeInteger(forKey: Application.versionKey)
+        
+        if version == Application.version{
+            return true
+        }
+        return false
+    }
+    
+    func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+        coder.encode(Application.version, forKey: Application.versionKey)
+        return true
+    }
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        window?.makeKeyAndVisible()
+        
+        return true
+    }
+    
 /* FOR IOS 13
     // MARK: UISceneSession Lifecycle
 
@@ -41,6 +70,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 */
+    
+    
+    // user notification center delegate
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         segueToQuoteOfTheDay()

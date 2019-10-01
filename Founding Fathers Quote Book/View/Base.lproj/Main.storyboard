@@ -10,7 +10,7 @@
         <!--Quote of the Day-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="QuoteViewController" customModule="Quotes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="QuoteViewController" customModule="Quotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -18,7 +18,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FoundingFathersSquare" translatesAutoresizingMaskIntoConstraints="NO" id="Nhz-lm-3BC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <wkWebView alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8u1-Q5-xKr">
+                            <wkWebView alpha="0.69999999999999996" contentMode="scaleToFill" restorationIdentifier="restorationIdentifier" translatesAutoresizingMaskIntoConstraints="NO" id="8u1-Q5-xKr">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -85,8 +85,8 @@
         <!--Settings-->
         <scene sceneID="gZK-fX-biz">
             <objects>
-                <tableViewController id="6Sv-6V-52h" customClass="SettingsViewController" customModule="Quotes" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="as1-uB-mOK">
+                <tableViewController storyboardIdentifier="settingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Sv-6V-52h" customClass="SettingsViewController" customModule="Quotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="settingsTV" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="as1-uB-mOK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -262,7 +262,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yKO-IM-vIt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tzL-az-kcS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tzL-az-kcS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iXA-u8-1bK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -280,8 +280,8 @@
         <!--Topics-->
         <scene sceneID="k6I-bc-nhy">
             <objects>
-                <tableViewController id="jlD-0b-uoS" customClass="TopicsViewController" customModule="Quotes" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="21B-Yv-6od">
+                <tableViewController storyboardIdentifier="topicsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jlD-0b-uoS" customClass="TopicsViewController" customModule="Quotes" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="topicsTV" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="21B-Yv-6od">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -329,7 +329,7 @@
         <!--Navigation Controller-->
         <scene sceneID="wc9-rH-CNk">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8uS-fo-5x0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="topicsNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8uS-fo-5x0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6GB-b0-36e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -347,7 +347,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7n0-Os-dLS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dyA-9o-QvX" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="settingsNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dyA-9o-QvX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="0zF-I8-utd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uxP-zY-OQ5">
